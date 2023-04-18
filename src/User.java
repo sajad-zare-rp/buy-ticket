@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.StringJoiner;
 
 public class User
 {
@@ -65,7 +66,7 @@ public void change_pass()
     {
         System.out.println("Enter a new password");
         String newPass = cin.next();
-        Print.userlist[0].setPassword(newPass);
+        Print.userlist[Signs.count_in].setPassword(newPass);
 
 
 
@@ -88,6 +89,29 @@ public void change_pass()
 public void searching()
 {
 
+print_menus.searchPrint();
+int inputSearch = cin.nextInt();
+switch (inputSearch)
+{
+    case 1 :
+    searchOrigin();
+    case 2 :
+    searchDestination();
+    case 3 :
+     searchDate();
+    case 4 :
+        searchTime();
+    case  5 :
+        searchPrice();
+    case  6 :
+        searchId();
+    default:
+         print_menus.searchPrint();
+
+
+
+
+}
 }
 public void booking_ticket()
 {
@@ -115,7 +139,7 @@ public int checkPassword(String last_pass)
 
 {
     flag = 0 ;
-if (Print.userlist[0].getPassword().equals(last_pass))
+if (Print.userlist[Signs.count_in].getPassword().equals(last_pass))
     {
         flag = 1 ;
     }
@@ -123,4 +147,123 @@ if (Print.userlist[0].getPassword().equals(last_pass))
 
 return flag ;
 }
+public void searchId()
+{
+    System.out.println("Enter flight id");
+    String inputId = cin.next();
+    for (int i = 0; i < Print.flightObjects.length ; i++)
+    {
+
+        if ( Print.flightObjects[i].getFlightId(). equals(inputId) )
+        {
+            System.out.println(Print.flightObjects[i]);
+
+        }
+        else
+
+        {
+
+            System.out.println("Id Not Exist");
+            print_menus.user_menu();
+
+        }
+
+    }
+
+}
+public void searchOrigin ()
+{
+
+    System.out.println("Enter flight origin");
+    String inputOrigin = cin.next();
+    for (int i = 0; i < Print.flightObjects.length ; i++)
+    {
+
+        if ( Print.flightObjects[i].equals(inputOrigin) )
+        {
+            System.out.println(Print.flightObjects[i]);
+
+        }
+        else
+
+        {
+            System.out.println("Flight Not Exist");
+        }
+
+    }
+
+}
+public void searchDestination()
+
+{
+    System.out.println("Enter Destination");
+    String inputDest = cin.next();
+    for (int i = 0; i < Print.flightObjects.length;  i++)
+    {
+
+        if ( Print.flightObjects[i].getFlightDestination().equals(inputDest) )
+        {
+            System.out.println(Print.flightObjects[i]);
+        }
+
+    }
+}
+public void searchDate()
+{
+
+    System.out.println("Enter Date Of flight ");
+    String inputDate = cin.next();
+    for (int i = 0; i < Print.flightObjects.length ; i++)
+    {
+        if ( Print.flightObjects[i].getFlightDate().equals(inputDate) )
+        {
+            System.out.println(Print.flightObjects[i]);
+        }
+        else
+
+        {
+            System.out.println("Flight Not Exist");
+        }
+    }
+
+}
+public void searchTime ()
+{
+    System.out.println("Enter Flight,s Time ");
+    String inputTime = cin.next();
+    for (int i = 0; i <Print.flightObjects.length ; i++)
+    {
+
+        if ( Print.flightObjects[i].getFlightTime().equals(inputTime) )
+        {
+            System.out.println(Print.flightObjects[i]);
+        }
+        else
+
+        {
+            System.out.println("Flight Not Exist");
+        }
+
+    }
+}
+public void searchPrice ()
+    {
+        System.out.println("Enter Flight,s Price");
+        String inputPrice = cin.next();
+        for (int i = 0; i <Print.flightObjects.length ; i++)
+        {
+
+            if ( Print.flightObjects[i].getFlightPrice().equals(inputPrice) )
+            {
+                System.out.println(Print.flightObjects[i]);
+            }
+            else
+
+            {
+                System.out.println("Flight Not Exist");
+            }
+
+        }
+
+    }
 }

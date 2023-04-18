@@ -5,6 +5,8 @@ public class Print {
     static User[] userlist = new User[20];
     static User userEntering =new User();
     static Admin adminEntering = new Admin();
+    static Flights[] flightObjects = new Flights[20];
+    static Flights flightRun = new Flights() ;
     Scanner cin = new Scanner(System.in);
 
 
@@ -12,8 +14,8 @@ public class Print {
     void welcome()
     {
         user_newer();
-       // flight_newer();
-        //flight_defualt();
+        flight_newer();
+        //flightObjects.;
         menu();
     }
         public void menu ()
@@ -43,6 +45,15 @@ public class Print {
                 userlist[i] = new User();
             }
         }
+    static public void flight_newer ()
+    {
+        for (int i = 0; i <flightObjects.length ; i++)
+        {
+
+            flightObjects[i] = new Flights() ;
+
+        }
+    }
 
         public void user_menu()
         {
@@ -68,6 +79,17 @@ public class Print {
             System.out.println("4-flight schedules");
             System.out.println("0-sign out");
             adminEntering.adminMenu();
+
+        }
+        public void searchPrint ()
+        {
+            System.out.println("Choose How To search ");
+            System.out.println("1-Origin");
+            System.out.println("2-Destination");
+            System.out.println("3-Date");
+            System.out.println("4-Time");
+            System.out.println("5-Price");
+            System.out.println("6-Id");
 
         }
 

@@ -5,10 +5,19 @@ public class User
 {
     private String username ;
     private String password ;
+    private int valet ;
+
+
+
+    /*********************************************************************************************************************/
     Signs signs_menu = new Signs();
     Print print_menus = new Print();
     Scanner cin = new Scanner(System.in);
+    String  inputBookId ;
     int flag = 0 ;
+    int flagBooking = 0 ;
+    int checkCounter = 0 ;
+    /*********************************************************************************************************************/
     public void setUsername(String username) {
         this.username = username;
     }
@@ -25,6 +34,14 @@ public class User
     public String getPassword() {
         return password;
     }
+    public void setValet(int valet) {
+        this.valet = valet;
+    }
+
+    public int getValet() {
+        return valet;
+    }
+    /**********************************************************************************************************************/
 
 public void user_menu()
 {
@@ -57,6 +74,7 @@ public void user_menu()
     }
 
 }
+/*************************************************************************************************************************/
 public void change_pass()
 {
     System.out.println("Enter last password");
@@ -80,12 +98,12 @@ public void change_pass()
 
     }
 
-
+    user_menu();
 
 
 
 }
-
+/**************************************************************************************************************************/
 public void searching()
 {
 
@@ -95,46 +113,97 @@ switch (inputSearch)
 {
     case 1 :
     searchOrigin();
+    break;
     case 2 :
     searchDestination();
+        break;
     case 3 :
      searchDate();
+        break;
     case 4 :
         searchTime();
+        break;
     case  5 :
         searchPrice();
+        break;
     case  6 :
         searchId();
+        break;
     default:
          print_menus.searchPrint();
+        break;
 
 
 
 
 }
+user_menu();
 }
+/************************************************************************************************************************/
 public void booking_ticket()
 {
+    System.out.println("Enter Flight Id ");
+      inputBookId = cin.next();
+      checkFlightId() ;
+      if ( flagBooking == 1 )
+      {
+          if ( Print.flightObjects[checkCounter].getFlightSeat() > 0 )
+          {
+
+              if ( Print.userlist[Signs.count_in].getValet() > Print.flightObjects[checkCounter].getFlightPrice() )
+              {
+                Print.userlist[Signs.count_in].setValet(Print.userlist[Signs.count_in].getValet() - Print.flightObjects[checkCounter].getFlightPrice());
+                  System.out.println("booking done");
+                  user_menu();
+
+              }
+              else
+              {
+                  System.out.println("Pleas charge your valet");
+                  user_menu();
+              }
+
+          }
+          System.out.println("all tickets selled");
+          user_menu();
+      }
+      else
+      {
+          System.out.println("Flight not exist");
+          user_menu();
+      }
+
+
+
 
 }
+/*************************************************************************************************************************/
 public void canceling()
 {
 
 }
+/*************************************************************************************************************************/
 public void booked_ticket()
 {
 
 }
+/*************************************************************************************************************************/
 public void charge()
 {
+    System.out.println("Enter How many do you want to charge");
+    int inputValet = cin.nextInt();
+    Print.userlist[Signs.count_in].setValet(inputValet);
+    user_menu();
 
 }
+/*************************************************************************************************************************/
 public void sign_out()
 {
     print_menus.menu();
 
 
 }
+/*************************************************************************************************************************/
 public int checkPassword(String last_pass)
 
 {
@@ -147,6 +216,7 @@ if (Print.userlist[Signs.count_in].getPassword().equals(last_pass))
 
 return flag ;
 }
+/************************************************************************************************************************/
 public void searchId()
 {
     System.out.println("Enter flight id");
@@ -171,6 +241,7 @@ public void searchId()
     }
 
 }
+/*************************************************************************************************************************/
 public void searchOrigin ()
 {
 
@@ -193,6 +264,7 @@ public void searchOrigin ()
     }
 
 }
+/*************************************************************************************************************************/
 public void searchDestination()
 
 {
@@ -208,6 +280,7 @@ public void searchDestination()
 
     }
 }
+/**************************************************************************************************************************/
 public void searchDate()
 {
 
@@ -227,6 +300,7 @@ public void searchDate()
     }
 
 }
+/*************************************************************************************************************************/
 public void searchTime ()
 {
     System.out.println("Enter Flight,s Time ");
@@ -246,24 +320,49 @@ public void searchTime ()
 
     }
 }
+/*************************************************************************************************************************/
 public void searchPrice ()
     {
         System.out.println("Enter Flight,s Price");
-        String inputPrice = cin.next();
+        int inputPrice = cin.nextInt();
         for (int i = 0; i <Print.flightObjects.length ; i++)
         {
 
-            if ( Print.flightObjects[i].getFlightPrice().equals(inputPrice) )
+            if ( Print.flightObjects[i].getFlightPrice() == (inputPrice) )
             {
                 System.out.println(Print.flightObjects[i]);
             }
-            else
 
-            {
-                System.out.println("Flight Not Exist");
-            }
 
         }
 
     }
+    /**********************************************************************************************************************/
+    public int checkFlightId()
+    {
+        for (int i = 0; i < Print.flightObjects.length ; i++)
+
+        {
+
+            if ( Print.flightObjects[i].getFlightId().equals(inputBookId) )
+            {
+                checkCounter = i ;
+                flagBooking = 1 ;
+            }
+            else {
+                notExist();
+            }
+
+        }
+        return flagBooking ;
+
+
+
+    }
+    public void notExist ()
+    {
+        System.out.println("Fight not exist");
+    }
+
 }
+

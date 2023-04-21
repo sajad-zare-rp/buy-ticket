@@ -5,7 +5,11 @@ private String flightOrigin ;
 
 private  String flightDestination ;
 private String flightDate ;
+    private String flightTime ;
 
+    private int flightPrice ;
+    private int flightSeat ;
+/*************************************************************************************************************************/
     public void setFlightId(String flightId) {
         this.flightId = flightId;
     }
@@ -30,11 +34,11 @@ private String flightDate ;
         return flightTime;
     }
 
-    public String getFlightPrice() {
+    public int getFlightPrice() {
         return flightPrice;
     }
 
-    public String getFlightSeat() {
+    public int getFlightSeat() {
         return flightSeat;
     }
 
@@ -54,19 +58,17 @@ private String flightDate ;
         this.flightTime = flightTime;
     }
 
-    public void setFlightPrice(String flightPrice) {
+    public void setFlightPrice(int flightPrice) {
         this.flightPrice = flightPrice;
     }
 
-    public void setFlightSeat(String flightSeat) {
+    public void setFlightSeat(int flightSeat) {
         this.flightSeat = flightSeat;
     }
+    /**********************************************************************************************************************/
 
-    private String flightTime ;
 
-private String flightPrice ;
-private String flightSeat ;
-
+/*************************************************************************************************************************/
 public void flight_defualt()
 {
     Print.flightObjects[1].flightId = "WX-12" ;
@@ -74,26 +76,27 @@ public void flight_defualt()
     Print.flightObjects[1].flightOrigin = "Yazd" ;
     Print.flightObjects[1].flightDestination = "Tehran" ;
     Print.flightObjects[1].flightTime = "12:30" ;
-    Print.flightObjects[1].flightPrice = "700'000" ;
-    Print.flightObjects[1].flightSeat = "51" ;
+    Print.flightObjects[1].flightPrice = 700000 ;
+    Print.flightObjects[1].flightSeat = 51 ;
     Print.flightObjects[2].flightId = "WZ-15" ;
     Print.flightObjects[2].flightOrigin = "Mashad" ;
     Print.flightObjects[2].flightDestination = "Ahvaz" ;
     Print.flightObjects[2].flightDate = "1401-12-11" ;
     Print.flightObjects[2].flightTime = "08:00" ;
-    Print.flightObjects[2].flightPrice = "900'000" ;
-    Print.flightObjects[2].flightSeat = "245" ;
+    Print.flightObjects[2].flightPrice = 900000 ;
+    Print.flightObjects[2].flightSeat = 245 ;
     Print.flightObjects[3].flightId = "BG-22" ;
     Print.flightObjects[3].flightOrigin = "Shiraz" ;
     Print.flightObjects[3].flightDestination = "Tabriz" ;
     Print.flightObjects[3].flightDate = "1401-12-12" ;
     Print.flightObjects[3].flightTime = "22:30" ;
-    Print.flightObjects[3].flightSeat = "12";
-    Print.flightObjects[3].flightPrice = "1'100'000" ;
+    Print.flightObjects[3].flightSeat = 12;
+    Print.flightObjects[3].flightPrice = 1100000 ;
 
 
 
 }
+/*************************************************************************************************************************/
 
 
 }

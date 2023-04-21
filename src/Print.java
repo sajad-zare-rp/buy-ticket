@@ -9,7 +9,7 @@ public class Print {
     static Flights flightRun = new Flights() ;
     Scanner cin = new Scanner(System.in);
 
-
+/***************************************************************************************************************/
 
     void welcome()
     {
@@ -18,6 +18,7 @@ public class Print {
         //flightObjects.;
         menu();
     }
+    /****************************************************************************************************************/
         public void menu ()
         {
             System.out.println("Enter a number");
@@ -38,6 +39,7 @@ public class Print {
                     break;
             }
         }
+        /****************************************************************************************************************/
         public static void user_newer()
         {
             for (int i = 0; i < userlist.length ; i++)
@@ -45,6 +47,7 @@ public class Print {
                 userlist[i] = new User();
             }
         }
+        /****************************************************************************************************************/
     static public void flight_newer ()
     {
         for (int i = 0; i <flightObjects.length ; i++)
@@ -54,6 +57,7 @@ public class Print {
 
         }
     }
+    /*******************************************************************************************************************/
 
         public void user_menu()
         {
@@ -70,6 +74,7 @@ public class Print {
 
 
         }
+        /****************************************************************************************************************/
         public void adminMenu()
         {
             System.out.println("Enter a number");
@@ -81,6 +86,7 @@ public class Print {
             adminEntering.adminMenu();
 
         }
+        /****************************************************************************************************************/
         public void searchPrint ()
         {
             System.out.println("Choose How To search ");
@@ -92,5 +98,18 @@ public class Print {
             System.out.println("6-Id");
 
         }
+        /****************************************************************************************************************/
+public void printTable ()
+{
 
+    for (int i = 0; i <flightObjects.length ; i++)
+    {
+
+
+
+
+
+    }
+
+}
 }

@@ -80,11 +80,11 @@ public  void addedFlight()
     Print.flightObjects[counterAdd].setFlightTime(inputTime);
     /**********************************************************************/
     System.out.println("Enter Flight Price");
-    String inputPrice = cin.next();
+    int inputPrice = cin.nextInt();
     Print.flightObjects[counterAdd].setFlightPrice(inputPrice);
     /**********************************************************************/
     System.out.println("Enter Flight Seat");
-    String inputSeat = cin.next();
+    int inputSeat = cin.nextInt();
     Print.flightObjects[counterAdd].setFlightSeat(inputSeat);
     /***********************************************************************/
 
@@ -185,11 +185,11 @@ public  int  checkIddefreants ()
         Print.flightObjects[countIdi].setFlightTime(inputNewTime);
 
         System.out.println("Enter new flight price");
-        String inputNewPrice = cin.next();
+        int inputNewPrice = cin.nextInt();
         Print.flightObjects[countIdi].setFlightPrice(inputNewPrice);
 
         System.out.println("Enter new flight seat");
-        String inputNewSeat = cin.next();
+        int inputNewSeat = cin.nextInt();
         Print.flightObjects[countIdi].setFlightPrice(inputNewSeat);
 
 

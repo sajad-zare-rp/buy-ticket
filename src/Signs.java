@@ -26,7 +26,7 @@ public class Signs {
 
         input_us = cin.next();
         input_pass = cin.next();
-        if ( inptu_in.equals("admin") )
+        if ( input_us.equals("admin") )
         {
             signUp(userList);
         }
@@ -95,7 +95,8 @@ public class Signs {
     public int searchUp(User[] userList) {
         flag = 0 ;
         for (int i = 0; i < userList.length; i++) {
-            if (userList[i] != null && userList[i].getUsername()!=null && userList[i].getUsername().equals(input_us)) {
+            if (userList[i] != null && userList[i].getUsername()!=null && userList[i].getUsername().equals(input_us))
+            {
                 flag = 1;
 
             }

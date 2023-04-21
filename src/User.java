@@ -85,12 +85,14 @@ public void change_pass()
         System.out.println("Enter a new password");
         String newPass = cin.next();
         Print.userlist[Signs.count_in].setPassword(newPass);
+        System.out.println("password change");
+        Print.user_menu();
 
 
 
     }
 
-            else
+    else
     {
 
         System.out.println("last password not correct ");
@@ -98,7 +100,6 @@ public void change_pass()
 
     }
 
-    user_menu();
 
 
 
@@ -190,10 +191,10 @@ public void booked_ticket()
 /*************************************************************************************************************************/
 public void charge()
 {
-    System.out.println("Enter How many do you want to charge");
+    System.out.println("Enter How much do you want to charge");
     int inputValet = cin.nextInt();
     Print.userlist[Signs.count_in].setValet(inputValet);
-    user_menu();
+    Print.user_menu();
 
 }
 /*************************************************************************************************************************/
@@ -219,49 +220,138 @@ return flag ;
 /************************************************************************************************************************/
 public void searchId()
 {
+
     System.out.println("Enter flight id");
+    int flag = 0 ;
     String inputId = cin.next();
+    System.out.print("\n\t\t\t\t\t\t\t\t\t\033[90m      << Flights List >>\033[97m\n");
+
+    System.out.println("\033[35m");
+    System.out.print("\t\t\t\t\t");
+    System.out.print("+---------------------------------------------------------------------------------------------+");
+    System.out.print("\n\t\t\t\t\t");
+    System.out.printf("| %-1s| %-1s| %-1s| %-1s| %-1s| %-1s| %-1s|", "\033[33m  Flight ID  \033[35m", "\033[33m   Origins   \033[35m", "\033[33m  Destention  \033[35m", "\033[33m    Data    \033[35m", "\033[33m   Time   \033[35m", "\033[33m   Price   \033[35m", "\033[33m Seats \033[35m");
+    System.out.println();
+
     for (int i = 0; i < Print.flightObjects.length ; i++)
     {
 
-        if ( Print.flightObjects[i].getFlightId(). equals(inputId) )
+        if ( Print.flightObjects[i].getFlightId()!=null && Print.flightObjects[i].getFlightId().equals(inputId) )
         {
-            System.out.println(Print.flightObjects[i]);
+            flag = 1 ;
+
+            if (Print.flightObjects[i].getFlightId() != null)
+            {
+                System.out.print("\033[35m\t\t\t\t\t");
+                System.out.print("+---------------------------------------------------------------------------------------------+");
+                try {
+                    Thread.sleep(80);
+                } catch (InterruptedException e) {
+                }
+                ;
+
+
+                System.out.print("\n\t\t\t\t\t");
+                System.out.printf("|\033[97m    %-10s\033[35m|\033[97m    %-10s\033[35m|\033[97m    %-11s\033[35m|\033[97m %-12s\033[35m|\033[97m  %-9s\033[35m|\033[97m  %-10s\033[35m|\033[97m  %-4s\033[35m  ", Print.flightObjects[i].getFlightId(), Print.flightObjects[i].getFlightOrigin(), Print.flightObjects[i].getFlightDestination(), Print.flightObjects[i].getFlightDate(), Print.flightObjects[i].getFlightTime(),Print.flightObjects[i].getFlightPrice(), Print.flightObjects[i].getFlightSeat());
+                System.out.println("|");
+                try {
+                    Thread.sleep(80);
+                } catch (InterruptedException e) {
+                }
+                ;
+            }
+
+
 
         }
-        else
 
-        {
 
-            System.out.println("Id Not Exist");
-            print_menus.user_menu();
 
-        }
 
     }
+    if ( flag == 1 )
+    {
+
+        Print.user_menu();
+
+    }
+    else
+    {
+        System.out.println("Id not exist");
+        Print.user_menu();
+    }
+
+
+
+
+
+
 
 }
 /*************************************************************************************************************************/
 public void searchOrigin ()
 {
 
-    System.out.println("Enter flight origin");
+
+    int flag = 0 ;
     String inputOrigin = cin.next();
+    System.out.println("Enter flight origin");
+    System.out.print("\n\t\t\t\t\t\t\t\t\t\033[90m      << Flights List >>\033[97m\n");
+
+    System.out.println("\033[35m");
+    System.out.print("\t\t\t\t\t");
+    System.out.print("+---------------------------------------------------------------------------------------------+");
+    System.out.print("\n\t\t\t\t\t");
+    System.out.printf("| %-1s| %-1s| %-1s| %-1s| %-1s| %-1s| %-1s|", "\033[33m  Flight ID  \033[35m", "\033[33m   Origins   \033[35m", "\033[33m  Destention  \033[35m", "\033[33m    Data    \033[35m", "\033[33m   Time   \033[35m", "\033[33m   Price   \033[35m", "\033[33m Seats \033[35m");
+    System.out.println();
     for (int i = 0; i < Print.flightObjects.length ; i++)
     {
 
         if ( Print.flightObjects[i].equals(inputOrigin) )
         {
-            System.out.println(Print.flightObjects[i]);
+            flag = 1 ;
+            if (Print.flightObjects[i].getFlightId() != null)
+            {
+                System.out.print("\033[35m\t\t\t\t\t");
+                System.out.print("+---------------------------------------------------------------------------------------------+");
+                try {
+                    Thread.sleep(80);
+                } catch (InterruptedException e) {
+                }
+                ;
+
+
+                System.out.print("\n\t\t\t\t\t");
+                System.out.printf("|\033[97m    %-10s\033[35m|\033[97m    %-10s\033[35m|\033[97m    %-11s\033[35m|\033[97m %-12s\033[35m|\033[97m  %-9s\033[35m|\033[97m  %-10s\033[35m|\033[97m  %-4s\033[35m  ", Print.flightObjects[i].getFlightId(), Print.flightObjects[i].getFlightOrigin(), Print.flightObjects[i].getFlightDestination(), Print.flightObjects[i].getFlightDate(), Print.flightObjects[i].getFlightTime(),Print.flightObjects[i].getFlightPrice(), Print.flightObjects[i].getFlightSeat());
+                System.out.println("|");
+                try {
+                    Thread.sleep(80);
+                } catch (InterruptedException e) {
+                }
+                ;
+            }
+
 
         }
-        else
 
-        {
-            System.out.println("Flight Not Exist");
-        }
 
     }
+    if ( flag == 1  )
+    {
+        Print.user_menu();
+    }
+    else
+    {
+        System.out.println("Origin not exist");
+        Print.user_menu();
+    }
+
+
+
+        System.out.println("Flight Not Exist");
+    user_menu();
+
+
 
 }
 /*************************************************************************************************************************/
@@ -269,15 +359,53 @@ public void searchDestination()
 
 {
     System.out.println("Enter Destination");
+    int flag = 0 ;
     String inputDest = cin.next();
+    System.out.print("\n\t\t\t\t\t\t\t\t\t\033[90m      << Flights List >>\033[97m\n");
+
+    System.out.println("\033[35m");
+    System.out.print("\t\t\t\t\t");
+    System.out.print("+---------------------------------------------------------------------------------------------+");
+    System.out.print("\n\t\t\t\t\t");
+    System.out.printf("| %-1s| %-1s| %-1s| %-1s| %-1s| %-1s| %-1s|", "\033[33m  Flight ID  \033[35m", "\033[33m   Origins   \033[35m", "\033[33m  Destention  \033[35m", "\033[33m    Data    \033[35m", "\033[33m   Time   \033[35m", "\033[33m   Price   \033[35m", "\033[33m Seats \033[35m");
+    System.out.println();
     for (int i = 0; i < Print.flightObjects.length;  i++)
     {
 
         if ( Print.flightObjects[i].getFlightDestination().equals(inputDest) )
         {
-            System.out.println(Print.flightObjects[i]);
+            flag = 1;
+            if (Print.flightObjects[i].getFlightId() != null)
+            {
+                System.out.print("\033[35m\t\t\t\t\t");
+                System.out.print("+---------------------------------------------------------------------------------------------+");
+                try {
+                    Thread.sleep(80);
+                } catch (InterruptedException e) {
+                }
+                ;
+
+
+                System.out.print("\n\t\t\t\t\t");
+                System.out.printf("|\033[97m    %-10s\033[35m|\033[97m    %-10s\033[35m|\033[97m    %-11s\033[35m|\033[97m %-12s\033[35m|\033[97m  %-9s\033[35m|\033[97m  %-10s\033[35m|\033[97m  %-4s\033[35m  ", Print.flightObjects[i].getFlightId(), Print.flightObjects[i].getFlightOrigin(), Print.flightObjects[i].getFlightDestination(), Print.flightObjects[i].getFlightDate(), Print.flightObjects[i].getFlightTime(),Print.flightObjects[i].getFlightPrice(), Print.flightObjects[i].getFlightSeat());
+                System.out.println("|");
+                try {
+                    Thread.sleep(80);
+                } catch (InterruptedException e) {
+                }
+                ;
+            }
         }
 
+    }
+    if ( flag == 1  )
+    {
+        Print.user_menu();
+    }
+    else
+    {
+        System.out.println("destination not exist");
+        Print.user_menu();
     }
 }
 /**************************************************************************************************************************/
@@ -285,18 +413,52 @@ public void searchDate()
 {
 
     System.out.println("Enter Date Of flight ");
+    int flag = 0;
     String inputDate = cin.next();
+    System.out.print("\n\t\t\t\t\t\t\t\t\t\033[90m      << Flights List >>\033[97m\n");
+
+    System.out.println("\033[35m");
+    System.out.print("\t\t\t\t\t");
+    System.out.print("+---------------------------------------------------------------------------------------------+");
+    System.out.print("\n\t\t\t\t\t");
+    System.out.printf("| %-1s| %-1s| %-1s| %-1s| %-1s| %-1s| %-1s|", "\033[33m  Flight ID  \033[35m", "\033[33m   Origins   \033[35m", "\033[33m  Destention  \033[35m", "\033[33m    Data    \033[35m", "\033[33m   Time   \033[35m", "\033[33m   Price   \033[35m", "\033[33m Seats \033[35m");
+    System.out.println();
     for (int i = 0; i < Print.flightObjects.length ; i++)
     {
         if ( Print.flightObjects[i].getFlightDate().equals(inputDate) )
         {
-            System.out.println(Print.flightObjects[i]);
-        }
-        else
+            if (Print.flightObjects[i].getFlightId() != null)
+            {
+                flag = 1 ;
+                System.out.print("\033[35m\t\t\t\t\t");
+                System.out.print("+---------------------------------------------------------------------------------------------+");
+                try {
+                    Thread.sleep(80);
+                } catch (InterruptedException e) {
+                }
+                ;
 
-        {
-            System.out.println("Flight Not Exist");
+
+                System.out.print("\n\t\t\t\t\t");
+                System.out.printf("|\033[97m    %-10s\033[35m|\033[97m    %-10s\033[35m|\033[97m    %-11s\033[35m|\033[97m %-12s\033[35m|\033[97m  %-9s\033[35m|\033[97m  %-10s\033[35m|\033[97m  %-4s\033[35m  ", Print.flightObjects[i].getFlightId(), Print.flightObjects[i].getFlightOrigin(), Print.flightObjects[i].getFlightDestination(), Print.flightObjects[i].getFlightDate(), Print.flightObjects[i].getFlightTime(),Print.flightObjects[i].getFlightPrice(), Print.flightObjects[i].getFlightSeat());
+                System.out.println("|");
+                try {
+                    Thread.sleep(80);
+                } catch (InterruptedException e) {
+                }
+                ;
+            }
         }
+
+    }
+    if ( flag == 1  )
+    {
+        Print.user_menu();
+    }
+    else
+    {
+        System.out.println("date not exist");
+        Print.user_menu();
     }
 
 }
@@ -304,36 +466,107 @@ public void searchDate()
 public void searchTime ()
 {
     System.out.println("Enter Flight,s Time ");
+    int flag = 0 ;
     String inputTime = cin.next();
+    System.out.print("\n\t\t\t\t\t\t\t\t\t\033[90m      << Flights List >>\033[97m\n");
+
+    System.out.println("\033[35m");
+    System.out.print("\t\t\t\t\t");
+    System.out.print("+---------------------------------------------------------------------------------------------+");
+    System.out.print("\n\t\t\t\t\t");
+    System.out.printf("| %-1s| %-1s| %-1s| %-1s| %-1s| %-1s| %-1s|", "\033[33m  Flight ID  \033[35m", "\033[33m   Origins   \033[35m", "\033[33m  Destention  \033[35m", "\033[33m    Data    \033[35m", "\033[33m   Time   \033[35m", "\033[33m   Price   \033[35m", "\033[33m Seats \033[35m");
+    System.out.println();
     for (int i = 0; i <Print.flightObjects.length ; i++)
     {
 
         if ( Print.flightObjects[i].getFlightTime().equals(inputTime) )
         {
-            System.out.println(Print.flightObjects[i]);
-        }
-        else
+            flag = 1 ;
+            if (Print.flightObjects[i].getFlightId() != null)
+            {
+                System.out.print("\033[35m\t\t\t\t\t");
+                System.out.print("+---------------------------------------------------------------------------------------------+");
+                try {
+                    Thread.sleep(80);
+                } catch (InterruptedException e) {
+                }
+                ;
 
-        {
-            System.out.println("Flight Not Exist");
+
+                System.out.print("\n\t\t\t\t\t");
+                System.out.printf("|\033[97m    %-10s\033[35m|\033[97m    %-10s\033[35m|\033[97m    %-11s\033[35m|\033[97m %-12s\033[35m|\033[97m  %-9s\033[35m|\033[97m  %-10s\033[35m|\033[97m  %-4s\033[35m  ", Print.flightObjects[i].getFlightId(), Print.flightObjects[i].getFlightOrigin(), Print.flightObjects[i].getFlightDestination(), Print.flightObjects[i].getFlightDate(), Print.flightObjects[i].getFlightTime(),Print.flightObjects[i].getFlightPrice(), Print.flightObjects[i].getFlightSeat());
+                System.out.println("|");
+                try {
+                    Thread.sleep(80);
+                } catch (InterruptedException e) {
+                }
+                ;
+            }
         }
 
+    }
+    if ( flag == 1  )
+    {
+        Print.user_menu();
+    }
+    else
+    {
+        System.out.println("time not exist");
+        Print.user_menu();
     }
 }
 /*************************************************************************************************************************/
 public void searchPrice ()
     {
         System.out.println("Enter Flight,s Price");
+        int flag = 0 ;
         int inputPrice = cin.nextInt();
+        System.out.print("\n\t\t\t\t\t\t\t\t\t\033[90m      << Flights List >>\033[97m\n");
+
+        System.out.println("\033[35m");
+        System.out.print("\t\t\t\t\t");
+        System.out.print("+---------------------------------------------------------------------------------------------+");
+        System.out.print("\n\t\t\t\t\t");
+        System.out.printf("| %-1s| %-1s| %-1s| %-1s| %-1s| %-1s| %-1s|", "\033[33m  Flight ID  \033[35m", "\033[33m   Origins   \033[35m", "\033[33m  Destention  \033[35m", "\033[33m    Data    \033[35m", "\033[33m   Time   \033[35m", "\033[33m   Price   \033[35m", "\033[33m Seats \033[35m");
+        System.out.println();
         for (int i = 0; i <Print.flightObjects.length ; i++)
         {
 
             if ( Print.flightObjects[i].getFlightPrice() == (inputPrice) )
             {
-                System.out.println(Print.flightObjects[i]);
+                flag = 1 ;
+                if (Print.flightObjects[i].getFlightId() != null)
+                {
+                    System.out.print("\033[35m\t\t\t\t\t");
+                    System.out.print("+---------------------------------------------------------------------------------------------+");
+                    try {
+                        Thread.sleep(80);
+                    } catch (InterruptedException e) {
+                    }
+                    ;
+
+
+                    System.out.print("\n\t\t\t\t\t");
+                    System.out.printf("|\033[97m    %-10s\033[35m|\033[97m    %-10s\033[35m|\033[97m    %-11s\033[35m|\033[97m %-12s\033[35m|\033[97m  %-9s\033[35m|\033[97m  %-10s\033[35m|\033[97m  %-4s\033[35m  ", Print.flightObjects[i].getFlightId(), Print.flightObjects[i].getFlightOrigin(), Print.flightObjects[i].getFlightDestination(), Print.flightObjects[i].getFlightDate(), Print.flightObjects[i].getFlightTime(),Print.flightObjects[i].getFlightPrice(), Print.flightObjects[i].getFlightSeat());
+                    System.out.println("|");
+                    try {
+                        Thread.sleep(80);
+                    } catch (InterruptedException e) {
+                    }
+                    ;
+                }
             }
 
 
+        }
+        if ( flag == 1  )
+        {
+            Print.user_menu();
+        }
+        else
+        {
+            System.out.println("price not exist");
+            Print.user_menu();
         }
 
     }
@@ -349,7 +582,8 @@ public void searchPrice ()
                 checkCounter = i ;
                 flagBooking = 1 ;
             }
-            else {
+            else
+            {
                 notExist();
             }
 
